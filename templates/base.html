@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Tienda Online{% endblock %}</title>
+    <!-- Enlace corregido para que funcione con el servidor de Node.js/Express -->
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header>
+    <h1>🛒 Tienda Online</h1>
+    <nav>
+        <!-- Enlace corregido para apuntar a la página de inicio -->
+        <a href="/">Inicio</a>
+    </nav>
+</header>
+
+<main>
+    {% block content %}{% endblock %}
+</main>
+
+<footer>
+    <p>Powered by Open Payments API</p>
+</footer>
+</body>
+</html>
