@@ -1,0 +1,12 @@
+'CREATE TABLE `pedido` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `Transaccion` varchar(50) NOT NULL,
+  `Producto` varchar(50) NOT NULL,
+  `Cantidad` int(11) NOT NULL,
+  `Total` decimal(10,2) NOT NULL,
+  `wallet_address_artesano` varchar(100) NOT NULL,
+  `Status` varchar(50) NOT NULL,
+  `Divisa` varchar(50) NOT NULL,
+  `fecha_creacion` timestamp NOT NULL DEFAULT current_timestamp(),
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci'
