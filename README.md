@@ -53,7 +53,8 @@ Sigue estos pasos para poner en marcha el proyecto en tu entorno local.
 ### Pasos
 
 1.  **Clona el repositorio (o usa tus archivos locales):**
-    FALTA
+2.  **Instalar las librerias**: npm install @interledger/open-payments && npm install dotenv
+3.  Correr el código a partir de archivo pagos.js y abrir el enlace generado en consola
 
     
 
@@ -77,3 +78,99 @@ Para no interrumpir la experiencia del usuario, el pago se realiza en una pesta�
 4.  **Confirmación:** Cuando el usuario aprueba el pago en la nueva pestaña, la siguiente llamada a `/finalizar-pago` tiene éxito. El backend devuelve `success: true`.
 5.  **Actualizar UI:** El frontend recibe la confirmación, detiene el `setInterval`, muestra el mensaje "¡Pago Aprobado!" y limpia el carrito.
 
+**ENGLISH**
+# PaDuki with Interledger Payments
+
+- **Dynamic Notifications:** Non-intrusive "Toast" messages that confirm actions such as adding a product to the cart.
+
+- **Shopping Cart on Separate Page:** The cart lives on its own route (`/cart`) for a better user experience.
+
+- **Complete Cart Management:**
+
+- Add products.
+
+- Adjust the quantity of each product (`+` / `-`).
+
+- Eliminate products individually.
+
+- **Session Storage:** The cart persists while you browse the store, but is automatically cleaned when you close the tab (`sessionStorage`).
+
+- **Modern Payment Flow:**
+
+- The payment authorization page opens in a **new tab**, allowing the cart page to remain active.
+
+- The cart page **actively awaits ("polling")** for payment confirmation, showing a "Payment Approved" message in real time without the need to recharge.
+
+- **Robust Backend:**
+
+- Node.js server with Express.
+
+- Orchestrate the flow of Open Payments (creation of `incomingPayment`, `quote` and `outgoingPayment`).
+
+- **Records in console a detailed JSON object** of each purchase attempt, ready to be stored in a database.
+
+---
+
+## 🛠️ Technological Stack
+
+- **Frontend:** HTML5, CSS3, JavaScript (ES6+)
+
+- **Backend:** Node.js, Express.js
+
+- **Payments:** `@interledger/open-payments`
+
+- **Additional Dependencies:** `cors`
+
+---
+
+## 📂 Project Structure
+
+Payments_app without cart/ │ ├── templates/ │ ├── index.html # Home page that shows the products. │ └�── cart.html # Page dedicated to the shopping cart. │ ├── static/ │ ├─── style.css # Main style sheet for the entire application. │ ├── client.js # Script for the index.html page (add to cart). │ └�─ cart-client.js # Script for the cart.html page (cart management and Payment). │ ├── payments.js # The backend server (Node.js + Express). ├── package.json # Defines the project's dependencies and scripts. └── README.md # This file.
+
+---
+
+## ⚙️ Installation and Configuration
+
+Follow these steps to start the project in your local environment.
+
+### Prerequisites
+
+- Have Node.js installed (version 16 or higher).
+
+### Steps
+
+1. **Clone the repository (or use your local files):**
+
+2. **Install libraries**: npm install @interledger/open-payments && npm install dotenv
+
+3. Run the code from the pagos.js file and open the link generated in the console
+
+
+
+## ⚙️ Application Flow
+
+### 1. Shopping Cart Logic
+
+The cart uses `sessionStorage` to persist the data during the user's navigation session.
+
+1. **Add Product:** On the main page, `client.js` captures the product data and its associated `wallet` from an internal map. Then, save this object in the `sessionStorage`.
+
+2. **View Cart:** On the `/cart` page, the `cart-client.js` script reads the `sessionStorage` data and dynamically renders the product list.
+
+3. **Modify Cart:** Any change (adjust quantity or delete) is made directly in the `sessionStorage` and the interface is rendered again with the function `updateCartUI()`.
+
+
+
+### 2. Asynchronous Payment Flow (Polling)
+
+In order not to interrupt the user experience, payment is made in a separate tab.
+
+1. **Start Payment:** The user clicks on "Pay Now". `cart-client.js` sends the cart details to the endpoint `/start-payment`.
+
+2. **Open Tab:** The backend returns an `interactUrl`. The frontend opens it in a new tab (`window.open`).
+
+3. **Wait and Verify:** The original cart page shows a "Waiting..." message and starts a `setInterval` that calls the endpoint `/finalize-payment` every 3 seconds.
+
+4. **Confirmation:** When the user approves the payment in the new tab, the next call to `/finalizar-pago` is successful. The backend returns `success: true`.
+
+5. **Update UI:** The frontend receives confirmation, stops the `setInterval`, shows the message "Payment Approved!" And clean the cart.
