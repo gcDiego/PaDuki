@@ -49,6 +49,8 @@ Sigue estos pasos para poner en marcha el proyecto en tu entorno local.
 ### Prerrequisitos
 
 -   Tener instalado Node.js (versión 16 o superior).
+-   Crear la base de datos llamada test
+-   Crear la tabla con el script bd
 
 ### Pasos
 
@@ -135,7 +137,9 @@ Follow these steps to start the project in your local environment.
 
 ### Prerequisites
 
-- Have Node.js installed (version 16 or higher).
+- Have Node.js installed (version 16 or higher).- Create the database called test
+
+- Create the table with the script bd
 
 ### Steps
 
