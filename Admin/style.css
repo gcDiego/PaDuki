@@ -1,0 +1,188 @@
+/* --- Nuevo Diseño Gráfico para la Tienda --- */
+
+/* Fuentes y Colores Base */
+:root {
+    --fuente-principal: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --color-fondo: #f4f7f6;
+    --color-texto: #333;
+    --color-primario: #008080; /* Teal */
+    --color-secundario: #4682B4; /* SteelBlue */
+    --color-blanco: #ffffff;
+    --sombra-suave: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --sombra-fuerte: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* Reset y Estilos Generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--fuente-principal);
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    line-height: 1.6;
+}
+
+/* Header */
+header {
+    background: var(--color-blanco);
+    padding: 1.5rem 2rem;
+    text-align: center;
+    border-bottom: 1px solid #e0e0e0;
+    box-shadow: var(--sombra-suave);
+}
+
+header h1 {
+    color: var(--color-primario);
+    font-weight: 800;
+}
+
+/* Contenido Principal */
+main {
+    max-width: 1100px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+}
+
+/* Cuadrícula de Productos */
+.grid-productos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    justify-content: center;
+}
+
+/* Tarjeta de Producto */
+.producto-card {
+    background: var(--color-blanco);
+    border-radius: 12px;
+    box-shadow: var(--sombra-suave);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    min-height: 680px;
+}
+
+.producto-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--sombra-fuerte);
+}
+
+/* --- ESTILOS PARA LA IMAGEN Y EL EFECTO HOVER --- */
+.producto-imagen {
+    position: relative; /* Contenedor para el hover */
+    overflow: hidden;
+}
+
+.producto-imagen img {
+    width: 100%;
+    height: 480px; /* <-- ALTURA DE IMAGEN MODIFICADA */
+    object-fit: cover;
+    display: block;
+}
+
+.producto-hover-info {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: var(--color-blanco);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 1rem;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.producto-imagen:hover .producto-hover-info {
+    opacity: 1;
+}
+/* --- FIN DE ESTILOS PARA HOVER --- */
+
+.producto-info {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.producto-info h4 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.precio {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: var(--color-primario);
+    margin-bottom: 1.5rem;
+    margin-top: auto;
+}
+
+/* Botones */
+.btn-comprar, .btn-pagar {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+}
+
+.btn-comprar {
+    background-color: var(--color-secundario);
+    color: var(--color-blanco);
+}
+
+.btn-comprar:hover {
+    background-color: #3a709b;
+    transform: scale(1.02);
+}
+
+.btn-pagar {
+    background-color: var(--color-primario);
+    color: var(--color-blanco);
+}
+
+.btn-pagar:hover {
+    background-color: #006666;
+    transform: scale(1.02);
+}
+
+/* Sección del Carrito */
+.cart-section {
+    max-width: 1100px;
+    margin: 3rem auto;
+    padding: 2rem;
+    background: var(--color-blanco);
+    border-radius: 12px;
+    box-shadow: var(--sombra-fuerte);
+}
+
+.cart-section h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 3rem 1rem;
+    margin-top: 3rem;
+    color: #888;
+}
