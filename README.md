@@ -78,7 +78,7 @@ Para no interrumpir la experiencia del usuario, el pago se realiza en una pesta�
 4.  **Confirmación:** Cuando el usuario aprueba el pago en la nueva pestaña, la siguiente llamada a `/finalizar-pago` tiene éxito. El backend devuelve `success: true`.
 5.  **Actualizar UI:** El frontend recibe la confirmación, detiene el `setInterval`, muestra el mensaje "¡Pago Aprobado!" y limpia el carrito.
 
-**ENGLISH**
+#ENGLISH
 # PaDuki with Interledger Payments
 
 - **Dynamic Notifications:** Non-intrusive "Toast" messages that confirm actions such as adding a product to the cart.
