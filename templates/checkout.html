@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Tienda Online</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header>
+    <h1>🛒 Tienda Online</h1>
+    <nav>
+        <a href="/">Inicio</a>
+    </nav>
+</header>
+
+<main>
+    <section class="checkout">
+        <h2>Finalizar Compra</h2>
+
+        <div class="checkout-container">
+            <div class="resumen-producto">
+                <h3>Resumen de Compra</h3>
+                <!--
+                  UNICO PUNTO DE VERDAD:
+                  Para cambiar el precio, solo modifica el valor de 'data-price-cents'.
+                  Ej: para $25.99, usa data-price-cents="2599".
+                -->
+                <div class="producto-seleccionado" data-price-cents="2700">
+                    <h4>Producto de Ejemplo</h4>
+                    <!-- Este párrafo se rellenará automáticamente con JavaScript -->
+                    <p class="precio" id="display-price"></p>
+                </div>
+            </div>
+
+            <div class="formulario-pago">
+                <h3>Información de Pago</h3>
+                
+                <div class="form-actions">
+                    <!-- El texto y el data-price de este botón se rellenarán con JavaScript -->
+                    <button id="pay-button" class="btn-pagar"></button>
+                </div>
+
+                <p id="status" style="text-align: center; margin-top: 15px;"></p>
+            </div>
+        </div>
+
+        <div id="final-result" style="display: none;" class="resultado-exito">
+            <h2>✅ Pago Procesado Exitosamente</h2>
+            <p>Tu pago ha sido procesado correctamente.</p>
+            <div class="detalles-pago">
+                <p><strong>ID de Transacción:</strong> <span id="payment-id"></span></p>
+            </div>
+            <a href="/" class="btn-volver">Volver a la Tienda</a>
+        </div>
+
+    </section>
+</main>
+
+<footer>
+    <p>Powered by Open Payments API</p>
+</footer>
+
+<script src="/static/ecommerce.js"></script>
+</body>
+</html>

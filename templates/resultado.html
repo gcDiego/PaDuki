@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}Resultado del Pago - Tienda Online{% endblock %}
+
+{% block content %}
+<section class="resultado-pago">
+
+    <!-- Este párrafo mostrará el estado mientras se finaliza el pago -->
+    <h2 id="status">Verificando el estado del pago, por favor espera...</h2>
+
+    <!-- Este bloque se mostrará solo cuando el pago sea exitoso -->
+    <div id="final-result" style="display: none;" class="resultado-exito">
+        <h2>✅ Pago Procesado Exitosamente</h2>
+        <p>Tu pago ha sido procesado correctamente.</p>
+        <div class="detalles-pago">
+            <p><strong>ID de Transacción:</strong> <span id="payment-id"></span></p>
+        </div>
+        <a href="/" class="btn-volver">Volver a la Tienda</a>
+    </div>
+
+</section>
+
+<!-- El script se encarga de finalizar el pago y mostrar el resultado -->
+<script src="/static/ecommerce.js"></script>
+{% endblock %}

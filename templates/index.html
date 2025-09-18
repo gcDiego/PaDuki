@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda de Artículos Únicos</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header>
+    <h1>Artículos Exclusivos</h1>
+    <p>Explora nuestra colección de artículos únicos.</p>
+    <a href="/cart" class="btn-ver-carrito">Ver Carrito</a>
+</header>
+
+<main class="grid-productos">
+    <!-- Producto 1 -->
+    <div class="producto-card" data-id="article-1" data-name="Alebrije de Gallo" data-price="12000">
+        <div class="producto-imagen">
+            <img src="/static/images/gallo.jpeg" alt="Alebrije de Gallo">
+            <div class="producto-hover-info">
+                    <span>Nombre del artesano: Juan Hernández.
+                        <br><br>Nacionalidad: Mexicana.
+                            <br><br> Este alebrije, tallado en madera de copal, representa un gallo en
+                        actitud de canto, símbolo de la energía vital, el despertar y la fuerza. Su elaboración
+                        inicia con el tallado manual de la pieza, utilizando machetes y cuchillos para dar forma al
+                        cuerpo y las alas. Posteriormente, se lija cuidadosamente y se deja secar para que la madera
+                        no se agriete. Finalmente, se pinta a mano con pinceles finos, aplicando colores vivos y patrones
+                        geométricos que evocan la cosmovisión zapoteca y mixteca.</span>
+            </div>
+        </div>
+        <div class="producto-info">
+            <h4>Alebrije de Gallo</h4>
+            <p class="precio">120.00 USD</p>
+            <button class="add-to-cart-button btn-comprar">Agregar al Carrito</button>
+        </div>
+    </div>
+
+    <!-- Producto 2 -->
+    <div class="producto-card" data-id="article-2" data-name="Incensario Cloisonné Floral" data-price="25000">
+        <div class="producto-imagen">
+            <img src="/static/images/incensario.jpeg" alt="Reloj de Pulsera Elegante">
+            <div class="producto-hover-info">
+                    <span>Nombre del artesano: Li Wei
+                        <br><br>Nacionalidad: China
+                        <br><br>Este incensario de tres patas, elaborado con la técnica tradicional del
+                        cloisonné, representa la sofisticación del arte decorativo chino. Su cuerpo redondo
+                        está cubierto por esmalte vítreo en tonos vibrantes, con motivos florales que incluyen
+                        una flor blanca central con centro rojo, rodeada de hojas verdes y bordes turquesa con
+                        detalles en rojo y blanco. Las asas laterales en forma de cabezas de león evocan la
+                        protección espiritual y la fuerza.</span>
+            </div>
+        </div>
+        <div class="producto-info">
+            <h4>Incensario Cloisonné Floral</h4>
+            <p class="precio">250.00 USD</p>
+            <button class="add-to-cart-button btn-comprar">Agregar al Carrito</button>
+        </div>
+    </div>
+
+    <!-- Producto 3 -->
+    <div class="producto-card" data-id="article-3" data-name="Jarron Cerámico" data-price="7500">
+        <div class="producto-imagen">
+            <img src="/static/images/jarron.jpeg" alt="Auriculares Inalámbricos">
+            <div class="producto-hover-info">
+                    <span>Nombre del artesano: Rosa Quispe
+                        <br><br>Nacionalidad: Peruana
+                        <br><br>Este jarrón decorativo, elaborado en cerámica tradicional andina,
+                        representa una escena pintada a mano del santuario histórico de Machu Picchu,
+                        rodeado por montañas verdes y muros de piedra gris. La pieza está adornada con
+                        patrones geométricos en tonos rojo, amarillo, negro y blanco, que evocan los diseños
+                        textiles de las culturas quechua y aimara.</span>
+            </div>
+        </div>
+        <div class="producto-info">
+            <h4>Jarron Cerámico</h4>
+            <p class="precio">75.00 USD</p>
+            <button class="add-to-cart-button btn-comprar">Agregar al Carrito</button>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <p>&copy; 2025 PaDuki</p>
+</footer>
+
+<script src="/static/client.js"></script>
+</body>
+</html>
