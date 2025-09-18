@@ -1,4 +1,4 @@
-# Tienda Online con Pagos Interledger
+# PaDuki con Pagos Interledger
 
 Este proyecto es una aplicación web de comercio electrónico simple pero completa, diseñada para demostrar un flujo de compra desde la selección de productos hasta la finalización del pago utilizando la API de **Open Payments**.
 
