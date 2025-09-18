@@ -1,0 +1,346 @@
+/* --- Nuevo Diseño Gráfico para la Tienda --- */
+
+/* Fuentes y Colores Base */
+:root {
+    --fuente-principal: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --color-fondo: #f4f7f6;
+    --color-texto: #333;
+    --color-primario: #008080; /* Teal */
+    --color-secundario: #4682B4; /* SteelBlue */
+    --color-blanco: #ffffff;
+    --sombra-suave: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --sombra-fuerte: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* ... (resto del CSS principal) ... */
+
+/* Header */
+header {
+    background: var(--color-blanco);
+    padding: 1.5rem 2rem;
+    text-align: center;
+    border-bottom: 1px solid #e0e0e0;
+    box-shadow: var(--sombra-suave);
+    position: relative;
+}
+
+header h1 {
+    color: var(--color-primario);
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+}
+
+/* Contenido Principal */
+main {
+    max-width: 1100px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+}
+
+/* ... (código de producto sin cambios) ... */
+.grid-productos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    justify-content: center;
+}
+
+.producto-card {
+    background: var(--color-blanco);
+    border-radius: 12px;
+    box-shadow: var(--sombra-suave);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    min-height: 680px;
+}
+
+.producto-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--sombra-fuerte);
+}
+
+.producto-imagen {
+    position: relative;
+    overflow: hidden;
+}
+
+.producto-imagen img {
+    width: 100%;
+    height: 480px;
+    object-fit: cover;
+    display: block;
+}
+
+/* --- ESTILOS PARA HOVER (MODIFICADOS PARA CENTRADO ABSOLUTO) --- */
+.producto-hover-info {
+    position: absolute;
+    inset: 0;                       /* top:0; right:0; bottom:0; left:0; */
+    background-color: rgba(0,0,0,0.72);
+    color: var(--color-blanco);
+    padding: 1.5rem 2rem;           /* más espacio lateral */
+    box-sizing: border-box;         /* incluye padding en las medidas */
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-y: auto;               /* permite scroll si el texto es largo */
+    scrollbar-gutter: stable both-edges; /* reserva espacio para la scrollbar */
+}
+
+.producto-hover-info span {
+    display: block;                 /* para que margin:auto funcione */
+    width: 100%;
+    max-width:70ch;                /* ancho de lectura cómodo (puedes ajustar) */
+    margin: 0 auto;                 /* centra el bloque dentro del overlay */
+    padding-right: 1rem;            /* evita quedar pegado a la scrollbar/derecha */
+    padding-left: 0.25rem;          /* pequeño ajuste para equilibrio visual */
+    line-height: 1.6;
+    text-align: justify;            /* o "left" / "center" según prefieras */
+    box-sizing: border-box;
+}
+.producto-imagen:hover .producto-hover-info {
+    opacity: 1;
+}
+
+/* --- ESTILO DE DIAGNÓSTICO --- */
+.hover-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    border: 2px solid red; /* BORDE ROJO PARA DIAGNÓSTICO */
+}
+
+.producto-imagen:hover .producto-hover-info {
+    opacity: 1;
+}
+
+.producto-info {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.producto-info h4 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.precio {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: var(--color-primario);
+    margin-bottom: 1.5rem;
+    margin-top: auto;
+}
+
+/* ... (resto del CSS sin cambios) ... */
+
+/* Botones */
+.btn-comprar, .btn-pagar, .btn-ver-carrito, .btn-volver {
+    display: inline-block;
+    padding: 1rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-comprar {
+    background-color: var(--color-secundario);
+    color: var(--color-blanco);
+    width: 100%;
+}
+
+.btn-pagar {
+    background-color: var(--color-primario);
+    color: var(--color-blanco);
+    width: 100%;
+}
+
+.btn-ver-carrito, .btn-volver {
+    background-color: var(--color-primario);
+    color: var(--color-blanco);
+    position: absolute;
+    top: 50%;
+    right: 2rem;
+    transform: translateY(-50%);
+}
+
+.btn-volver {
+    position: static;
+    transform: none;
+}
+
+.btn-comprar:hover, .btn-pagar:hover, .btn-ver-carrito:hover, .btn-volver:hover {
+    opacity: 0.9;
+    transform: scale(1.02);
+}
+
+/* Sección del Carrito */
+.cart-section {
+    max-width: 800px;
+    margin: 3rem auto;
+    padding: 2rem;
+    background: var(--color-blanco);
+    border-radius: 12px;
+    box-shadow: var(--sombra-fuerte);
+}
+
+/* --- ESTILOS PARA ITEMS DEL CARRITO --- */
+#cart-items li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #eee;
+}
+
+#cart-items li:last-child {
+    border-bottom: none;
+}
+
+.cart-item-left {
+    display: flex;
+    align-items: center;
+}
+
+.cart-item-image {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-right: 1.5rem;
+}
+
+.cart-item-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-item-name {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.cart-item-right {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.cart-item-price {
+    font-weight: 700;
+    font-size: 1.1rem;
+    min-width: 100px;
+    text-align: right;
+}
+
+.cart-empty-message {
+    text-align: center;
+    color: #888;
+    justify-content: center;
+}
+
+/* --- ESTILOS PARA CONTROLES DE CANTIDAD --- */
+.cart-item-quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.quantity-change-button {
+    background-color: #eee;
+    border: none;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #555;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    transition: background-color 0.2s ease;
+}
+
+.quantity-change-button:hover {
+    background-color: #ddd;
+}
+
+.item-quantity-display {
+    font-weight: 600;
+    min-width: 20px;
+    text-align: center;
+}
+
+/* --- ESTILOS PARA EL TOTAL DEL CARRITO --- */
+.cart-total-container {
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+/* --- ESTILOS PARA EL BOTÓN DE ELIMINAR --- */
+.remove-item-button {
+    background: none;
+    border: none;
+    color: #aaa;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 0 0.5rem;
+    line-height: 1;
+    transition: color 0.2s ease;
+}
+
+.remove-item-button:hover {
+    color: #d9534f;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 3rem 1rem;
+    margin-top: 3rem;
+    color: #888;
+}
+
+/* Notificación Toast */
+.toast-notification {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--color-primario);
+    color: var(--color-blanco);
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    box-shadow: var(--sombra-fuerte);
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.5s ease, top 0.5s ease;
+}
+
+.toast-notification.show {
+    opacity: 1;
+    top: 40px;
+}
