@@ -178,7 +178,7 @@ const PRIVATE_KEY_PATH = path.join(__dirname, 'private.key');
 const KEY_ID = 'd7894431-525f-47bc-88b1-e22ae6cfb26f';
 const CLIENT_WALLET_ADDRESS_URL = 'https://ilp.interledger-test.dev/diego';
 const SENDING_WALLET_ADDRESS_URL = 'https://ilp.interledger-test.dev/diego';
-const RECEIVING_WALLET_ADDRESS_URL = 'https://ilp.interledger-test.dev/ada_sp';
+const RECEIVING_WALLET_ADDRESS_URL = 'https://ilp.interledger-test.dev/paduki';
 
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
